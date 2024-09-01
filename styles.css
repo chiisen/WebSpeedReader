@@ -1,0 +1,45 @@
+body {
+  width: 300px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#summarize-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+#summarize-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#message {
+  margin-bottom: 10px;
+}
+
+#summary {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#api-key-input {
+  margin-top: 10px;
+}
+
+#api-key {
+  width: 200px;
+  margin-right: 5px;
+}

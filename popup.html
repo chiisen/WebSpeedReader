@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>網頁快速閱讀助手</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div class="header">
+      <select id="language-select">
+        <option value="zh">繁體中文</option>
+        <option value="en">English</option>
+      </select>
+      <button id="summarize-btn" class="btn">總結</button>
+    </div>
+    <div id="message">請點擊"總結"按鈕開始總結當前頁面內容。</div>
+    <div id="summary"></div>
+    <div id="api-key-input">
+      <input type="text" id="api-key" placeholder="請輸入 API Key">
+      <button id="save-api-key" class="btn">保存</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
