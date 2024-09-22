@@ -1,44 +1,53 @@
+/* 設定 body 元素的寬度、內邊距和字體 */
 body {
   width: 300px;
   padding: 10px;
   font-family: Arial, sans-serif;
 }
 
+/* 設定 header 區域的排版和底部邊距 */
 .header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
+/* 設定按鈕的內邊距和游標樣式 */
 .btn {
   padding: 5px 10px;
   cursor: pointer;
 }
 
+/* 設定 summarize 按鈕的背景色、文字顏色和邊框 */
 #summarize-btn {
   background-color: #4CAF50;
   color: white;
   border: none;
 }
 
+/* 設定 summarize 按鈕在禁用狀態下的樣式 */
 #summarize-btn:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
 }
 
+/* 設定 message 區域的底部邊距 */
 #message {
   margin-bottom: 10px;
 }
 
+/* 設定 summary 區域的換行和單詞換行樣式 */
 #summary {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
+/* 設定 groq API Key 輸入區域的頂部邊距 */
 #api-key-input {
   margin-top: 10px;
 }
 
+/* 設定 groq API Key 輸入框的寬度和右邊距 */
 #api-key {
   width: 200px;
   margin-right: 5px;

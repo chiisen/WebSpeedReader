@@ -3,24 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>網頁快速閱讀助手</title>
+  <!-- 引入樣式表 -->
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <div id="app">
     <div class="header">
+      <!-- 語言選擇下拉選單 -->
       <select id="language-select">
         <option value="zh">繁體中文</option>
         <option value="en">English</option>
       </select>
+      <!-- 總結按鈕 -->
       <button id="summarize-btn" class="btn">總結</button>
     </div>
+    <!-- 提示訊息區域 -->
     <div id="message">請點擊"總結"按鈕開始總結當前頁面內容。</div>
+    <!-- 總結結果顯示區域 -->
     <div id="summary"></div>
     <div id="api-key-input">
+      <!-- API Key 輸入框 -->
       <input type="text" id="api-key" placeholder="請輸入 API Key">
+      <!-- 保存 API Key 按鈕 -->
       <button id="save-api-key" class="btn">保存</button>
     </div>
   </div>
+  <!-- 引入 JavaScript 文件 -->
   <script src="popup.js"></script>
 </body>
 </html>
