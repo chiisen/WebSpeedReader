@@ -52,3 +52,10 @@ body {
   width: 200px;
   margin-right: 5px;
 }
+
+/* 設定 clear 按鈕的背景色、文字顏色和邊框 */
+#clear-summary-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}

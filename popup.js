@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // 獲取 DOM 元素
   const languageSelect = document.getElementById('language-select');
   const summarizeBtn = document.getElementById('summarize-btn');
+  const clearSummaryBtn = document.getElementById('clear-summary-btn'); // 新增
   const messageDiv = document.getElementById('message');
   const summaryDiv = document.getElementById('summary');
   const apiKeyInput = document.getElementById('api-key');
@@ -35,6 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // 總結按鈕點擊事件
   summarizeBtn.addEventListener('click', summarize);
 
+  // 清除按鈕點擊事件
+  clearSummaryBtn.addEventListener('click', function() {
+    summaryDiv.textContent = ''; // 清空總結區域
+    chrome.storage.local.remove('summary'); // 移除保存的總結
+  });
+
   // 保存 groq API Key 按鈕點擊事件
   saveApiKeyBtn.addEventListener('click', function() {
     const apiKey = apiKeyInput.value.trim(); // 獲取並修剪 groq API Key
@@ -48,9 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateLanguage() {
     if (currentLanguage === 'zh') {
       summarizeBtn.textContent = '總結'; // 更新總結按鈕文本
+      clearSummaryBtn.textContent = '清除'; // 更新清除按鈕文本
       messageDiv.textContent = '請點擊"總結"按鈕開始總結當前頁面內容。'; // 更新提示訊息
     } else {
       summarizeBtn.textContent = 'Summarize'; // 更新總結按鈕文本
+      clearSummaryBtn.textContent = 'Clear'; // 更新清除按鈕文本
       messageDiv.textContent = 'Please click the "Summarize" button to start summarizing the current page content.'; // 更新提示訊息
     }
   }
@@ -64,6 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       // 獲取當前活動標籤頁
       const [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+
+      // 確認內容腳本已加載
+      await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: ['content.js']
+      });
+
       // 向內容腳本發送訊息以獲取頁面內容
       const pageContentResponse = await chrome.tabs.sendMessage(tab.id, {action: "getPageContent"});
       const pageContent = pageContentResponse.content;

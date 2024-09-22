@@ -3,7 +3,11 @@
   "name": "網頁快速閱讀助手",
   "version": "1.0",
   "description": "幫助用戶快速總結和閱讀網頁內容",
-  "permissions": ["activeTab", "storage"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
